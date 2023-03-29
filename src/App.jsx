@@ -10,8 +10,7 @@ import Success from "./pages/Success";
 const App = () => {
   return (
     <Container>
-      <NavbarComponent>
-      </NavbarComponent>
+      <NavbarComponent />
         <Link to={"/success"} >success</Link>
       <Routes>
         {/* base route/ default route */}

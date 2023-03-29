@@ -3,7 +3,6 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 
 const ProductCard = ({item}) => {
-  {console.log(item)}
   return (
     <Card>
       <Card.Body>
