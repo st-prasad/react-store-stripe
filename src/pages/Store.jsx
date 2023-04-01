@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import PopupBtn from "../components/PopupBtn";
+import ModalActivate from "../components/ModalActivate";
 import ProductCard from "../components/ProductCard";
 import { productsArray } from "../ProductsData";
 
 const Store = () => {
 
 
+// state for product cards
+  const [cartArray, setCartArray] = useState([]);
+
+  const handleClick = (arrayItem) => {
+    // const updatedArray = dataArray.filter(item => item.id !== "default");
+    // updatedArray.push(item)
+    const updatedArray = [...cartArray, arrayItem];
+  setCartArray(updatedArray);
+    console.log(updatedArray);
+  };
+
+  // product cards render
+
   const productItem = productsArray.map((item) => (
     <Col key={item.id}>
       {/* <h1>{item.title}</h1> */}
-      <ProductCard item={item} />
+      <ProductCard item={item} handleClick={handleClick} />
     </Col>
   ));
 
@@ -19,7 +32,7 @@ const Store = () => {
       <h1 align="center" className="p-3">
         welcome to the store!
       </h1>
-      <PopupBtn />
+      <ModalActivate cartArray={cartArray} />
       <Row
         xs={1}
         sm={2}
