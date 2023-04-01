@@ -31,6 +31,14 @@ export const productsArray = [
     },
 ];
 
+export const cartArray = [
+    {
+        id:"default",
+        title: "coffee",
+        price: 5,
+    },
+];
+
 
 // Once find method finds the result, it breaks the loop and returns it. forEach will continue cycling through the entire length
 
