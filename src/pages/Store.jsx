@@ -51,8 +51,7 @@ const Store = () => {
   }
 
   const emptyCart = () => {
-    const updatedArray = [];
-    setCartArray(updatedArray);
+    setCartArray([]);
     alert("cart emptied");
 
   }

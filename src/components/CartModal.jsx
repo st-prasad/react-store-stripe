@@ -50,7 +50,10 @@ const CartModal = ({ closePopup, cartArray, handleRemoveAll, removeOne, handleAd
               {cartArray.length === 0 ? (
                 <li>add items!</li>
               ) : (
-                CartArrayTitles
+                <>
+                {CartArrayTitles}
+                <Button variant="danger" size="sm" onClick={emptyCart}> empty the cart </Button>
+                </>
               )}
             </ul>
           </Modal.Title>
