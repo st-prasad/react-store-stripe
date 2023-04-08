@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import CartModal from "./CartModal";
 
-const ModalActivate = ({cartArray}) => {
+const ModalActivate = ({cartArray, handleRemoveAll, removeOne, handleAdd, emptyCart }) => {
   // const [BtnClicked, setBtnClicked] = useState(false)
   // const openPopup = () => (setBtnClicked(true))
   // const closePopup = () => (setBtnClicked(false))
@@ -12,7 +12,7 @@ const ModalActivate = ({cartArray}) => {
 
   return (
     <>
-      {BtnClicked ? <CartModal cartArray={cartArray} closePopup={closePopup} /> :
+      {BtnClicked ? <CartModal cartArray={cartArray} closePopup={closePopup} handleRemoveAll={handleRemoveAll} removeOne={removeOne} handleAdd={handleAdd} emptyCart={emptyCart} /> :
       <Button onClick={openPopup}>view cart</Button>}
     </>
   );

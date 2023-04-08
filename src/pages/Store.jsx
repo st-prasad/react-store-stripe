@@ -10,20 +10,66 @@ const Store = () => {
 // state for product cards
   const [cartArray, setCartArray] = useState([]);
 
-  const handleClick = (arrayItem) => {
-    // const updatedArray = dataArray.filter(item => item.id !== "default");
+
+  const handleAdd = (addItem) => {
+        // const updatedArray = dataArray.filter(item => item.id !== "default");
     // updatedArray.push(item)
-    const updatedArray = [...cartArray, arrayItem];
-  setCartArray(updatedArray);
-    console.log(updatedArray);
+    const updatedArray = [...cartArray];
+    const itemInCart = updatedArray.find((item) => item.id === addItem.id);
+  
+    if (itemInCart) {
+      // If the item is found in cartArray Update the quantity
+      itemInCart.quantity += 1;
+    } else {
+      // Create a new item with all properties from the item
+      // and add the quantity property initialized to 1
+      updatedArray.push({ ...addItem, quantity: 1 });
+    }
+  
+    setCartArray(updatedArray);
+    alert("Cart updated successfully");
   };
+  
+
+
+  const handleRemoveAll= (rmvItem) => {
+
+    const updatedArray = cartArray.filter((item) => (item !== rmvItem))
+  setCartArray(updatedArray);
+    alert("removed Item successfully");
+  };
+
+  const removeOne = (rmvItem) => {
+    if (rmvItem.quantity===1) {
+      handleRemoveAll(rmvItem)
+    } else {
+      const updatedArray = [...cartArray];
+      const itemInCart = updatedArray.find((item) => item.id === rmvItem.id);
+      itemInCart.quantity -= 1;
+      setCartArray(updatedArray);
+    }
+  }
+
+  const emptyCart = () => {
+    const updatedArray = [];
+    setCartArray(updatedArray);
+    alert("cart emptied");
+
+  }
+
+  // const addOne = (addItem) => {
+  //     const updatedArray = [...cartArray];
+  //     const itemInCart = updatedArray.find((item) => item.id === addItem.id);
+  //     itemInCart.quantity += 1;
+  //     setCartArray(updatedArray);
+  // }
 
   // product cards render
 
-  const productItem = productsArray.map((item) => (
-    <Col key={item.id}>
+  const productItem = productsArray.map((ProdArrItem) => (
+    <Col key={ProdArrItem.id}>
       {/* <h1>{item.title}</h1> */}
-      <ProductCard item={item} handleClick={handleClick} />
+      <ProductCard ProdArrItem={ProdArrItem} handleAdd={handleAdd} />
     </Col>
   ));
 
@@ -32,7 +78,7 @@ const Store = () => {
       <h1 align="center" className="p-3">
         welcome to the store!
       </h1>
-      <ModalActivate cartArray={cartArray} />
+      <ModalActivate cartArray={cartArray} handleAdd={handleAdd} handleRemoveAll={handleRemoveAll} removeOne={removeOne} emptyCart={emptyCart} />
       <Row
         xs={1}
         sm={2}
