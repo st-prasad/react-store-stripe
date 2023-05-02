@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
+
+
 const CartModal = ({
   closePopup,
   cartArray,
@@ -30,19 +32,17 @@ const CartModal = ({
   }
 
   const CartArrayTitles = cartArray.map((item) => (
-    <div key={item.id}>
+    <div key={item.id} className="mb-2">
       <li>
         {item.title} - {item.price}
       </li>
       <p>{item.quantity}</p>
       <p>total item price = ${item.quantity * item.price}</p>
-      <Button variant="danger" size="sm" onClick={() => handleAdd(item)}>
-        {" "}
-        +{" "}
+      <Button variant="danger" size="sm" onClick={() => handleAdd(item)} className="me-2">
+        +
       </Button>
-      <Button variant="danger" size="sm" onClick={() => removeOne(item)}>
-        {" "}
-        -{" "}
+      <Button variant="danger" size="sm" onClick={() => removeOne(item)} className="me-2">
+        -
       </Button>
       <Button variant="danger" size="sm" onClick={() => handleRemoveItem(item)}>
         Remove
@@ -67,7 +67,6 @@ const CartModal = ({
 
   return (
     <div>
-      {/* <Modal show={true} onClick={closePopup}> */}
       <Modal show={true} onHide={closePopup}>
         <Modal.Header closeButton>
           <Modal.Title>
@@ -77,9 +76,8 @@ const CartModal = ({
               ) : (
                 <>
                   {CartArrayTitles}
-                  <Button variant="danger" size="sm" onClick={emptyCart}>
-                    {" "}
-                    empty the cart{" "}
+                  <Button variant="danger" size="sm" onClick={emptyCart} className="mt-2">
+                    empty the cart
                   </Button>
                 </>
               )}
@@ -91,7 +89,7 @@ const CartModal = ({
         </Modal.Body>
         <Modal.Footer>
           {cartArray.length !== 0 && (
-            <Button variant="primary" size="sm" onClick={checkOut} >
+            <Button variant="primary" size="sm" onClick={checkOut} className="mr-2">
               purchase
             </Button>
           )}
