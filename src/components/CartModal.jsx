@@ -13,14 +13,6 @@ const CartModal = ({
   const [totalPrice, setTotalPrice] = useState(0);
   const [itemsQuantity, setItemsQuantity] = useState(0);
 
-  // const [itemsQuantity, setItemsQuantity] = useState(0);
-
-  // const [totalPrice, setTotalPrice] = useState(0);
-  // const renderCartArray = () => {
-  //   return cartArray.map((item, index) => (
-  //     <li key={index}>{item.title}</li>
-  //   ));
-  // };
 
   const checkOut = async () => {
     await fetch("http://localhost:4000/checkout", {
@@ -58,26 +50,6 @@ const CartModal = ({
     </div>
   ));
 
-  // const calculateTotalItems = () => {
-  //   let itemsQuantity = 0;
-  //   cartArray.forEach((item) => {
-  //     itemsQuantity += item.quantity;
-  //   });
-  //   return itemsQuantity;
-  // };
-
-  // * const getTags = (property, Tag) =>
-  //   cartArray.map((item) => (<Tag key={item.id}>{item[property]}</Tag>));
-  // const ArrayTitles = getTags("title", "li");
-
-  // useEffect(() => {
-  //   let calculatedTotalPrice = 0;
-
-  //   for (let i = 0; i < cartArray.length; i++) {
-  //     calculatedTotalPrice += cartArray[i].quantity * cartArray[i].price;
-  //   }
-  //   setTotalPrice(calculatedTotalPrice);
-  // }, [cartArray]);
 
   useEffect(() => {
     let newTotalPrice = 0;
