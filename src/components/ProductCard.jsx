@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-// import { cartArray } from '../ProductsData';
 
 
 const ProductCard = ({ProdArrItem, handleAdd, cartArray, handleRemoveItem }) => {
@@ -8,13 +7,7 @@ const ProductCard = ({ProdArrItem, handleAdd, cartArray, handleRemoveItem }) => 
   const [isInCart, setIsInCart] = useState(false);
 
 
-
-  // useEffect(() => {
-  //   if (isButtonClicked) {
-  //     console.log("This is the first time the button is clicked.");
-  //   }
-  // }, [isButtonClicked]);
-  useEffect(() => {
+    useEffect(() => {
     const findItem = (cartArray.find((item) => item.id === ProdArrItem.id));
     (findItem) ? setIsInCart(true) : setIsInCart(false)
   }, [cartArray]);
@@ -37,8 +30,6 @@ const ProductCard = ({ProdArrItem, handleAdd, cartArray, handleRemoveItem }) => 
           )
         }
 
-        {/* <Button variant='primary' onClick={() => handleAdd(ProdArrItem)} >add to cart</Button> */}
-        {/* <Button variant='primary' onClick={handleClick}>add to cart|{isButtonClicked}</Button> */}
       </Card.Body>
     </Card>
   )

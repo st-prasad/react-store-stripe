@@ -13,8 +13,7 @@ const Store = () => {
 
 
   const handleAdd = (addItem) => {
-        // const updatedArray = dataArray.filter(item => item.id !== "default");
-    // updatedArray.push(item)
+
     const updatedArray = [...cartArray];
     const itemInCart = updatedArray.find((item) => item.id === addItem.id);
   
@@ -57,14 +56,6 @@ const Store = () => {
 
   }
 
-  // const addOne = (addItem) => {
-  //     const updatedArray = [...cartArray];
-  //     const itemInCart = updatedArray.find((item) => item.id === addItem.id);
-  //     itemInCart.quantity += 1;
-  //     setCartArray(updatedArray);
-  // }
-
-  // product cards render
 
   const productItem = productsArray.map((ProdArrItem) => (
     <Col key={ProdArrItem.id}>
@@ -85,7 +76,7 @@ const Store = () => {
         md={3}
         className="g-4 align-items-center viewport-height"
       >
-        {/* <Row xs={1} md={1} className="g-4 align-items-center viewport-height"> */}
+
         {productItem}
       </Row>
     </>
