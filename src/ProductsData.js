@@ -1,3 +1,7 @@
+import breadImg from './assets/bread.jpg';
+import cakeImg from './assets/cake.jpg';
+import coffeeImg from './assets/coffee.jpg';
+
 export const productsArray = [
     //ids from stripe
     
@@ -5,31 +9,39 @@ export const productsArray = [
         id:"price_1Mw3KUGdMF0I3225bVRKNuGZ",
         title: "coffee",
         price: 200,
+        imgSrc: coffeeImg,
     },
     {
         id:"price_1Mw3OxGdMF0I3225hfbSYSbV",
         title: "bread",
         price: 300,
+        imgSrc: breadImg,
+
     },
     {
         id:"price_1Mw3QHGdMF0I3225pJ8jMsbY",
         title: "cake",
         price: 400,
+        imgSrc: cakeImg,
+
     },
     {
         id:"price_1MxmurGdMF0I3225Ac68uzey",
         title: "butter",
         price: 500,
+
     },
     {
         id:"price_1MxmvQGdMF0I3225oamyDEMU",
         title: "milk",
         price: 800,
+
     },
     {
         id:"price_1Mxmw0GdMF0I32250YFtQRua",
         title: "cheese",
         price: 1500,
+
     },
 ];
 
