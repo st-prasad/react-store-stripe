@@ -11,6 +11,7 @@ const Store = () => {
   const [cartArray, setCartArray] = useState([]);
 
 
+
   const handleAdd = (addItem) => {
         // const updatedArray = dataArray.filter(item => item.id !== "default");
     // updatedArray.push(item)
@@ -32,16 +33,16 @@ const Store = () => {
   
 
 
-  const handleRemoveAll= (rmvItem) => {
+  const handleRemoveItem= (rmvItem) => {
 
-    const updatedArray = cartArray.filter((item) => (item !== rmvItem))
+    const updatedArray = cartArray.filter((item) => (item.id !== rmvItem.id))
   setCartArray(updatedArray);
     alert("removed Item successfully");
   };
 
   const removeOne = (rmvItem) => {
     if (rmvItem.quantity===1) {
-      handleRemoveAll(rmvItem)
+      handleRemoveItem(rmvItem)
     } else {
       const updatedArray = [...cartArray];
       const itemInCart = updatedArray.find((item) => item.id === rmvItem.id);
@@ -68,7 +69,7 @@ const Store = () => {
   const productItem = productsArray.map((ProdArrItem) => (
     <Col key={ProdArrItem.id}>
       {/* <h1>{item.title}</h1> */}
-      <ProductCard ProdArrItem={ProdArrItem} handleAdd={handleAdd} />
+      <ProductCard ProdArrItem={ProdArrItem} handleAdd={handleAdd} cartArray={cartArray} handleRemoveItem={handleRemoveItem} />
     </Col>
   ));
 
@@ -77,7 +78,7 @@ const Store = () => {
       <h1 align="center" className="p-3">
         welcome to the store!
       </h1>
-      <ModalActivate cartArray={cartArray} handleAdd={handleAdd} handleRemoveAll={handleRemoveAll} removeOne={removeOne} emptyCart={emptyCart} />
+      <ModalActivate cartArray={cartArray} handleAdd={handleAdd} handleRemoveItem={handleRemoveItem} removeOne={removeOne} emptyCart={emptyCart} />
       <Row
         xs={1}
         sm={2}

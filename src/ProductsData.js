@@ -1,33 +1,35 @@
 export const productsArray = [
+    //ids from stripe
+    
     {
-        id:"1",
+        id:"price_1Mw3KUGdMF0I3225bVRKNuGZ",
         title: "coffee",
-        price: 5,
+        price: 200,
     },
     {
-        id:"2",
+        id:"price_1Mw3OxGdMF0I3225hfbSYSbV",
         title: "bread",
-        price: 10,
+        price: 300,
     },
     {
-        id:"3",
+        id:"price_1Mw3QHGdMF0I3225pJ8jMsbY",
         title: "cake",
-        price: 20,
+        price: 400,
     },
     {
-        id:"4",
+        id:"price_1MxmurGdMF0I3225Ac68uzey",
         title: "butter",
-        price: 60,
+        price: 500,
     },
     {
-        id:"5",
+        id:"price_1MxmvQGdMF0I3225oamyDEMU",
         title: "milk",
-        price: 10,
+        price: 800,
     },
     {
-        id:"6",
+        id:"price_1Mxmw0GdMF0I32250YFtQRua",
         title: "cheese",
-        price: 20,
+        price: 1500,
     },
 ];
 
